@@ -9,7 +9,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import in.co.rays.utility.ServletUtility;
 
-@WebServlet("/ErrorCtl")
+@WebServlet(name = "ErrorCtl", urlPatterns = { "/ctl/ErrorCtl" })
 public class ErrorCtl extends BaseCtl{
 	
 	@Override

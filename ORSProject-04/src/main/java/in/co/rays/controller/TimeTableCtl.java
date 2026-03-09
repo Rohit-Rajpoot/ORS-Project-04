@@ -22,7 +22,7 @@ import in.co.rays.utility.DataValidator;
 import in.co.rays.utility.PropertyReader;
 import in.co.rays.utility.ServletUtility;
 
-@WebServlet("/TimeTableCtl")
+@WebServlet(name = "TimeTableCtl", urlPatterns = { "/ctl/TimeTableCtl" })
 public class TimeTableCtl extends BaseCtl{
 	
 	@Override

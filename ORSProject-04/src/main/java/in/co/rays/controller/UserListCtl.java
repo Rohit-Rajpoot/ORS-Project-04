@@ -19,7 +19,7 @@ import in.co.rays.utility.DataUtility;
 import in.co.rays.utility.PropertyReader;
 import in.co.rays.utility.ServletUtility;
 
-@WebServlet("/UserListCtl")
+@WebServlet(name = "UserListCtl", urlPatterns = { "/ctl/UserListCtl" })
 public class UserListCtl extends BaseCtl {
 
 	@Override
@@ -111,7 +111,7 @@ public class UserListCtl extends BaseCtl {
 				}
 
 			} else if (OP_NEW.equalsIgnoreCase(op)) {
-				ServletUtility.redirect(ORSView.COLLEGE_CTL, request, response);
+				ServletUtility.redirect(ORSView.USER_CTL, request, response);
 				return;
 
 			} else if (OP_DELETE.equalsIgnoreCase(op)) {
@@ -121,18 +121,18 @@ public class UserListCtl extends BaseCtl {
 					for (String id : ids) {
 						deletebean.setId(DataUtility.getInt(id));
 						model.delete(deletebean);
-						ServletUtility.setSuccessMessage("Data is deleted successfully", request);
+						ServletUtility.setSuccessMessage("Data Is Deleted Successfully", request);
 					}
 				} else {
-					ServletUtility.setErrorMessage("Select at least one record", request);
+					ServletUtility.setErrorMessage("Select At Least One Record", request);
 				}
 
 			} else if (OP_RESET.equalsIgnoreCase(op)) {
-				ServletUtility.redirect(ORSView.COLLEGE_LIST_CTL, request, response);
+				ServletUtility.redirect(ORSView.USER_LIST_CTL, request, response);
 				return;
 
 			} else if (OP_BACK.equalsIgnoreCase(op)) {
-				ServletUtility.redirect(ORSView.COLLEGE_LIST_CTL, request, response);
+				ServletUtility.redirect(ORSView.USER_LIST_CTL, request, response);
 				return;
 			}
 
@@ -140,7 +140,7 @@ public class UserListCtl extends BaseCtl {
 			next = model.search(bean, pageNo + 1, pageSize);
 
 			if (list == null || list.size() == 0) {
-				ServletUtility.setErrorMessage("No record found ", request);
+				ServletUtility.setErrorMessage("No Record Found ", request);
 			}
 
 			ServletUtility.setList(list, request);
